@@ -1,0 +1,1 @@
+Have included tailwind to style the HTML document by adding some of the classes defined in the tailwind documentation.
