@@ -1,0 +1,1 @@
+Have added some CSS to my existing HTML file (resume) and made it somewhat responsive.
