@@ -1,0 +1,1 @@
+In this week we explored basics of HTML and an assignment to create a resume using HTML only and then added some CSS to it.
