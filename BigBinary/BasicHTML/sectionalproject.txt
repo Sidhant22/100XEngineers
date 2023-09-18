@@ -1,0 +1,1 @@
+In this sectional project I have designed a web page only using HTML no CSS with the basic building blocks of HTML like tables, input elements, list (ordered)
