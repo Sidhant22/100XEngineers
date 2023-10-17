@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Tweet</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Post a Tweet</h1>
+        <input type="text" id="tweetInput" placeholder="What's happening?">
+        <button id="postTweet">Tweet</button>
+    </div>
+
+    <script>
+        const tweetInput = document.getElementById("tweetInput");
+        const postButton = document.getElementById("postTweet");
+
+        postButton.addEventListener("click", () => {
+            const tweet = tweetInput.value;
+            if (!tweet) {
+                console.log("Please enter a tweet.");
+                return;
+            }
+
+            // JSONPlaceholder's "posts" endpoint for creating data
+            const apiUrl = "https://jsonplaceholder.typicode.com/posts";
+
+            // Check if the tweet is already posted (you may choose to keep this or remove it)
+            fetch(apiUrl, {
+                method: "GET",
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    const existingTweets = data.map((post) => post.title);
+                    if (existingTweets.includes(tweet)) {
+                        console.log("Tweet post failed: Tweet is already posted.");
+                    } else {
+                        // If the tweet is not already posted and not empty, proceed with the POST request
+                        fetch(apiUrl, {
+                            method: "POST",
+                            body: JSON.stringify({ userId: 1, title: tweet }),
+                            headers: {
+                                "Content-type": "application/json; charset=UTF-8",
+                            },
+                        })
+                            .then((response) => {
+                                if (response.ok) {
+                                    return response.json();
+                                } else {
+                                    return response.text().then((data) => {
+                                        throw new Error(data);
+                                    });
+                                }
+                            })
+                            .then((data) => {
+                                console.log("Tweet posted successfully:");
+                                console.log(data);
+                            })
+                            .catch((error) => {
+                                console.log("Tweet post failed:");
+                                console.log(error.message);
+                            });
+                    }
+                })
+                .catch((error) => {
+                    console.log("Error checking existing tweets:", error.message);
+                });
+        });
+    </script>
+</body>
+</html>

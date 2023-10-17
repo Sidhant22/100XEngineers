@@ -1,0 +1,39 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f5f8fa;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #1da1f2;
+}
+
+#tweetInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #1da1f2;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#postTweet {
+    background-color: #1da1f2;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#postTweet:hover {
+    background-color: #0c85d0;
+}
