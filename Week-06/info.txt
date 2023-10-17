@@ -1,0 +1,1 @@
+Here I have used the fetch function with a dummy API link to show the posing of a tweet all the actions are logged in using console.log
